@@ -1,0 +1,30 @@
+Get user data from post table.....
+
+in(User model)
+
+class Post extends Model
+{
+    use HasFactory;
+    protected $fillable =[
+        'user_id',
+        'title',
+        'description',
+        'thumbnail'
+
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(related: User::class, foreignKey:'user_id');
+    }
+}
+
+
+
+
+
+
+
+
+
+<div class="mb-1 text-muted">{{$post->user->name}} <small class="ml-5">{{date('y-m-d',strtotime($post->created_at))}}</small></div>
