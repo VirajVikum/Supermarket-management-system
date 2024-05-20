@@ -1,0 +1,140 @@
+middleware
+
+To let only logged users
+
+php artisan make:middleware IsAdmin
+
+
+
+create "constant.php" in config folder
+
+
+in("constant.php" )
+
+<?php
+define('ADMIN','admin');
+define('USER','user');
+
+return [
+    'ADMIN'=>'admin',
+    'USER'=>'user'
+];
+
+
+
+
+in(user migration file)
+
+
+  Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->string('role')->default(USER);
+            $table->rememberToken();
+            $table->timestamps();
+        });
+    }
+
+
+
+
+
+in(app/HTTP/middleware"ISAdmin.php")
+
+public function handle(Request $request, Closure $next): Response
+    {
+        if(Auth::user()->role==ADMIN){
+            return $next($request);
+        }
+	else
+    }
+
+
+
+
+create "admin.blade.php" in views/layouts
+
+
+create "dashboard.blade.php" in views/admin
+
+
+
+php artisan make:controller Admin/DashboardController 
+
+
+
+
+
+Register middleware
+
+
+in(app/Http/Kernel.php)
+
+
+protected $middlewareAliases = [
+        'auth' => \App\Http\Middleware\Authenticate::class,
+        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
+        'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
+        'can' => \Illuminate\Auth\Middleware\Authorize::class,
+        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
+        'precognitive' => \Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests::class,
+        'signed' => \App\Http\Middleware\ValidateSignature::class,
+        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+    
+        'admin' => IsAdmin::class
+    ];
+
+
+
+
+
+//Admin
+ROute::get('/admin/dashboard',[DashboardController::class,'index'])->middleware('admin')->name('admin.dashboard');
+
+
+
+php artisan migrate:fresh
+
+
+
+
+
+
+
+Models/User.php
+
+   public function IsAdmin(){
+        if($this->role==ADMIN){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+
+
+
+
+
+in(app/HTTP/middleware"ISAdmin.php")
+
+public function handle(Request $request, Closure $next): Response
+    {
+        if(auth()->user()->role==ADMIN){
+            
+            return $next($request);
+        }
+        else{
+            return back();
+
+        }
+        
+    }

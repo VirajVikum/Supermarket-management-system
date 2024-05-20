@@ -1,0 +1,57 @@
+public function store(Request $request)
+    {
+        try{
+        $data=$request->validate(
+            [
+            'name'=>'required',
+            'email'=>'required|unique:clients',
+            'password'=>'required|min:8|confirmed',
+            ]);
+            //dd($data);
+
+            Client::create($data);
+
+            return redirect(('/'));
+        }
+        catch (\Exception $e) {
+            return back()->with('error' , 'Invalid credentials check again');
+        }
+            
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+public function login(Request $request)
+    {
+        // $credentials = $request->validate([
+        //     'email' => 'required',
+        //     'password' => 'required',
+        // ]);
+        $email=$request->email;
+        $password=$request->password;
+        //dd($item);
+
+        $item = Client::where('email', $email)->first();
+
+        //$item = Client::find($email);
+        //dd($item);
+        if($item){
+            $pwrd = $item->password;
+            if($pwrd==$password)
+            {
+                return redirect(route('register.home'));
+            }
+            else{
+                return back()->with('error' , 'Invalid credentials');
+            }
+            
+        }

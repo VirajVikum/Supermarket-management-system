@@ -1,0 +1,49 @@
+php artisan make:seeder AdminSeeder
+
+
+
+in(AdminSeeder.php)
+
+public function run(): void
+    {
+        User::create([
+            'name'=>'Administrator',
+            'email'=>'admin@gmail.com',
+            'password'=> bcrypt('12345678'),
+            'role'=>'admin'
+        ]);
+    }
+
+//add multiple --->>  
+	    ac_user_types::create([
+            ['title' => 'Super Admin'],
+            ['title' => 'Admin'],
+            ['title' => 'Supervisor'],
+            ['title' => 'Agent'],
+            ['title' => 'Outlet Supervisor'],
+            ['title' => 'Outlet User'],
+            ['title' => 'Client Admin'],
+            ['title' => 'Client Report User'],
+            
+        ]);
+
+
+
+in(DatabaseSeeder.php)
+
+public function run(): void
+    {
+
+        $this->call(AdminSeeder::class);
+    }
+
+
+
+
+
+php artisan db:seed   //(We can run this also when migrate----"php artisan migrate:fresh --seed")
+
+
+
+
+
