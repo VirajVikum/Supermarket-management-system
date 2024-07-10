@@ -1,0 +1,33 @@
+for security purpose
+not to access through urls
+
+
+
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::post('posts/ore', [PostController::class,'store'])->name('post.store');
+    Route::get('post/all',[HomeController::class,'allposts'])->name('post.all');
+    Route::get('post/{post}/edit',[postController::class,'edit'])->name('post.edit');
+    Route::post('post/{post}/update',[postController::class,'update'])->name('post.update');
+    Route::get('post/{postid}/delete',[postController::class,'delete'])->name('post.delete');
+
+});
+Route::get('post/{postid}/show',[postController::class,'show'])->name('post.show');
+
+
+
+
+//Admin
+Route::group(['middleware'=>'admin'],function(){ //'auth' can be use
+    ROute::get('/admin/dashboard',[DashboardController::class,'index'])->middleware('admin')->name('admin.dashboard');
+});
+
+
+
+This alosa can use
+
+//Admin
+Route::group(['middleware'=>['admin'], 'prefix'=>'admin', 'as'=>'admin.'],function(){ //'auth' can be use
+    ROute::get('/dashboard',[DashboardController::class,'index'])->middleware('admin')->name('dashboard');
+});

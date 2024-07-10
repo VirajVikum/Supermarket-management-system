@@ -1,0 +1,72 @@
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\DB; // Import the DB facade
+
+class YourController extends Controller
+{
+    public function yourMethod()
+    {
+        // Retrieve data using query builder
+        $data = DB::table('your_table')->get(); // Replace 'your_table' with your actual table name
+
+        // Process the data or pass it to the view
+        return view('your-view', ['data' => $data]);
+    }
+}
+
+
+
+
+
+
+
+
+To select specific data based on a condition, you can use the where() method in Eloquent ORM or the where() clause in query builder. Here's how you can do it:
+
+Using Eloquent ORM:
+
+
+
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\YourModel; // Import your model
+
+class YourController extends Controller
+{
+    public function yourMethod()
+    {
+        // Retrieve data based on a specific condition using Eloquent ORM
+        $data = YourModel::where('name', 'specific_name')->get(); // Replace 'name' with the column name and 'specific_name' with the value
+
+        // Process the data or pass it to the view
+        return view('your-view', ['data' => $data]);
+    }
+}
+
+
+
+
+Using Query Builder:
+
+
+
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\DB; // Import the DB facade
+
+class YourController extends Controller
+{
+    public function yourMethod()
+    {
+        // Retrieve data based on a specific condition using query builder
+        $data = DB::table('your_table')->where('name', 'specific_name')->get(); // Replace 'your_table' with your actual table name
+
+        // Process the data or pass it to the view
+        return view('your-view', ['data' => $data]);
+    }
+}

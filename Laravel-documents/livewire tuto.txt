@@ -1,0 +1,12 @@
+composer create-projet laravel/laravel:^9.0 login-app
+
+
+\login-app>composer require livewire/livewire
+
+
+php artisan make:model Task -m
+
+
+
+PS C:\xampp\htdocs\login-app> php artisan make:seeder UserSeeder
+PS C:\xampp\htdocs\login-app> php artisan make:seeder TaskSeeder

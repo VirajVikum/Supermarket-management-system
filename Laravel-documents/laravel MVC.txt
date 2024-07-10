@@ -1,0 +1,70 @@
+C:\xampp\htdocs>composer create-project laravel/laravel app-crud
+
+
+run server-->
+C:\xampp\htdocs\app-crud>php artisan serve
+
+
+in (.env)
+DB_DATABASE=app-crud
+
+
+C:\xampp\htdocs\app-crud> php artisan migrate
+
+
+C:\xampp\htdocs\app-crud> php artisan make:migration create_products_table
+
+
+create tables--> in(migrations)
+Schema::create('products', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->integer('qty');
+            $table->decimal('price');
+            $table->text('description');
+            $table->timestamps();
+        });
+
+
+C:\xampp\htdocs\app-crud> php artisan migrate
+
+
+create model-->
+C:\xampp\htdocs\app-crud> php artisan make:model product
+
+
+in (app/Models)
+class product extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'qty',
+        'price',
+        'decription'
+    ];
+}
+
+
+create controller-->
+C:\xampp\htdocs\app-crud> php artisan make:controller productController
+
+
+in(app/HTTP/productController.php)
+class productController extends Controller
+{
+    public function index(){
+        return view('products.index');
+    }
+}
+
+
+create view-->
+in(Resources/views)
+create product/index.blade.php file 
+
+
+create Route
+in(Routes/web.php)
+Route::get('/product',[productController::class,'index'])->name('product.index');
