@@ -1,0 +1,3 @@
+<div wire:poll.15s> <!-- In seconds... -->
+ 
+<div wire:poll.15000ms> <!-- In milliseconds... -->

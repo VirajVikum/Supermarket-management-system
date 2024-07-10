@@ -1,0 +1,57 @@
+when there is a relationship
+
+
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class ac_user extends Model
+{
+    public function userType()
+    {
+        return $this->belongsTo(ac_user_types::class, 'user_type_id');
+    }
+}
+
+
+
+
+
+
+
+
+
+
+use App\Models\ac_user;
+use App\Models\ac_user_types;
+
+public function user_settings()
+{
+    // Retrieve all users with their associated user types
+    $users = ac_user::with('userType')->get();
+
+    return view('users.user_home', ['users' => $users]);
+}
+
+
+
+
+
+
+
+
+
+
+
+@foreach($users as $user)
+    <p>User: {{ $user->name }}</p>
+    <p>User Type: {{ $user->userType->title }}</p>
+@endforeach
+
+
+
+
+
+
+
