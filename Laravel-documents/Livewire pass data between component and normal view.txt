@@ -1,0 +1,48 @@
+in regular laravel view
+
+
+<div class="absolute right-0 mr-8">
+        <!-- <button class="border border-gray rounded-md p-1">Assign Extensions</button> -->
+        <button onclick="Livewire.dispatch('buttonClicked')" class="border border-gray rounded-md p-1 ml-2 mr-3">Satisfaction Reasons</button>
+        <button class="border border-gray rounded-md p-1 ml-2 mr-3">Call Retry Settings</button>
+        <button class="border border-gray rounded-md p-1 ml-2 mr-3"data-modal-target="crud-modal" data-modal-toggle="crud-modal">Create Campaign</button>
+    </div>
+
+
+
+
+
+
+
+
+
+in component controler
+
+<?php
+
+namespace App\Livewire\Admin;
+
+use Livewire\Component;
+
+class SatisfactionReasons extends Component
+{
+    public $isOpen = false;
+
+    protected $listeners = ['buttonClicked'];
+
+    public function buttonClicked()
+    {
+        $this->isOpen=true;
+    }
+
+
+
+
+
+in component view
+
+
+<div>
+    @if ($isOpen)
+        <div class="relative z-20" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+       
