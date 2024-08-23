@@ -1,5 +1,7 @@
 npm run build --->create build
 
+git - version controller
+github -hosting platform
 
 
 
@@ -8,19 +10,8 @@ create repository
 
 
 
-git init
+git init      -> initialize git repository folder for project (.git)
 
-
-
-git add .
-
-
-
-git status   ---> see changes / identify where we are
-
-
-
-git commit -m "commit msg"  --->push project
 
 
 
@@ -32,15 +23,73 @@ if not configuired
 
 
 
-git branch -M main
 
 
 
-git remote add origin https://github.com/VirajVikum/vj-vlog-frontend.git
+git add .       -> add all files to staging area(.git folder)
+
+
+	to add one type files   -> git add *.js
+	to add one file   -> git add abc.js
+	to remove file    ->git rm --cached abc.js
+
+
+git status   ---> see changes / identify where we are
 
 
 
-git push origin main  (before this create a token)
+git commit -m "commit msg"  ---> create new version of project (by commit by commit)
+
+	using vim editor
+		git commit
+			To edit -> press i (add msg without #)
+			To exit -> press esc , :wq +enter
+
+
+
+create .gitignore (in cmd ->   touch .gitignore)
+
+	add files and folders to ignore when commiting
+	files-> abc.js
+	foders-> /newFoder
+
+
+
+
+create new branch
+	git branch login
+
+switch to new branch
+	git checkout login (can crete and edit files)
+
+
+
+git merge login  -> (merge branch to master branch)
+
+
+
+Add repository to a remote repository(GitHub, GitLab)
+
+	git branch -M main   ->Rename branch to "main"
+
+
+
+	git remote add origin https://github.com/VirajVikum/vj-vlog-frontend.git
+
+	if change repository
+		git remote set-url origin http.....
+
+
+	git push origin main  (before this create a token)
+
+
+
+Add readme file
+	create README.md (edit as need)
+
+
+
+
 
 
 
@@ -52,7 +101,16 @@ git push origin main  (before this create a token)
 download git repository
 
 
-git clone http/:link..  --->(after this node i to instal node)
+	git clone http/:link..    
+
+	update repo
+		git pull
+
+
+
+
+
+
 
 
 
@@ -62,6 +120,7 @@ git clone http/:link..  --->(after this node i to instal node)
 
 
 update repository
+
 
 
 git add .
