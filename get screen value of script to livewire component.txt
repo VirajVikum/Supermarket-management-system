@@ -1,0 +1,71 @@
+     </select>
+        </form>
+    </div>
+
+
+    <script>
+        document.addEventListener('livewire:init', () => {
+        document.getElementById('envType').addEventListener('change', function() {
+            var campaignsForm = document.getElementById('campaignsForm');
+            if (this.value === 'Out Bound') {
+                campaignsForm.style.display = 'block';
+            } else {
+                campaignsForm.style.display = 'none';
+            }
+        });
+        document.getElementById('campaigns').addEventListener('change', function() {
+            console.log(this.value);
+            Livewire.dispatch('campaign-selected', {campaignId : this.value}); 
+        });
+    });
+        
+    </script>
+
+
+
+
+
+
+
+
+
+
+class CallQueue extends Component
+{
+    public $selectedCampaignId = null;
+
+    protected $listeners = ['campaignSelected'];
+
+    #[On('campaign-selected')]
+    public function campaignSelected($campaignId)
+    {
+        $this->selectedCampaignId = $campaignId;
+    }
+
+    public function render()
+    {
+        return view('livewire.agents.call-queue');
+    }
+}
+
+
+
+
+
+
+
+
+
+don't add wirepoll
+
+<div class="block max-w-sm p-6 bg-white p-4 m-3 border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full md:w-1/2 lg:w-1/3 h-36 flex justify-between px-5 pt-5">
+<div style="display: flex; flex-direction: column;">
+<div>
+<p class="font-normal text-gray-700 dark:text-gray-400">
+    @if($selectedCampaignId)
+        <p>Selected Campaign ID: {{ $selectedCampaignId }}</p>
+    @else
+        <p>No campaign selected.</p>
+    @endif
+</p>
+</div>
