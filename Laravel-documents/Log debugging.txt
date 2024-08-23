@@ -1,0 +1,6 @@
+Log::info('Received campaignId: ' . $campaignId);
+
+
+
+
+Get-Content storage/logs/laravel.log -Wait
