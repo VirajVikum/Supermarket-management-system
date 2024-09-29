@@ -30,7 +30,7 @@ C:\xampp\htdocs\app-crud> php artisan migrate
 
 
 create model-->
-C:\xampp\htdocs\app-crud> php artisan make:model product
+C:\xampp\htdocs\app-crud> php artisan make:model Product
 
 
 in (app/Models)

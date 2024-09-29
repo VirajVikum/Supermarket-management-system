@@ -1,0 +1,35 @@
+viraj@DESKTOP-BFK8C83:~$ ls -l  - file count
+
+viraj@DESKTOP-BFK8C83:~$ sudo su    -super
+
+
+
+
+
+
+
+
+
+
+
+Nipuna Fernando
+13:51
+#ADJUST TIME
+timedatectl set-timezone Asia/Colombo
+Nipuna Fernando
+14:05
+nginx
+Nipuna Fernando
+14:10
+apt install net-tools git lsb-release traceroute apt-transport-https locate curl htop zip unzip dirmngr -y
+Nipuna Fernando
+14:19
+#INSTALLING MYSQL
+curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
+Nipuna Fernando
+14:37
+database collation
+CREATE DATABASE laravel CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+Nipuna Fernando
+14:42
+CREATE USER 'test'@'localhost' IDENTIFIED BY 'password';

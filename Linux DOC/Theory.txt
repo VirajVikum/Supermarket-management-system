@@ -1,0 +1,17 @@
+shell - program that use to pass keyboard commands to os
+
+terminal - tool use to pass shell commands to os
+
+casesensitive
+
+
+task manager - htop
+
+
+
+
+git clone https://<token>@github.com/VirajVikum/call-center.git
+
+
+git clone https://<token>@github.com/username/repository-name.git
+git clone https://ghp_YourGeneratedToken@github.com/VirajVikum/call-center.git

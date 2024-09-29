@@ -1,0 +1,22 @@
+<!-- Trigger the modal with a button -->
+<button onclick="window.dispatchEvent(new CustomEvent('open-modal', { detail: 'exampleModal' }))" class="bg-blue-500 text-white px-4 py-2 rounded-md">
+    Open Modal
+</button>
+
+    <livewire:admin.setting-items.users.create-user />
+
+
+
+
+
+
+
+
+create-user--->
+
+<x-modal name="exampleModal" show="false" maxWidth="2xl">
+    <div class="p-6">
+        <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Add User</h2>
+        fgggg
+    </div>
+</x-modal>
