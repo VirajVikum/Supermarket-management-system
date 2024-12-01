@@ -1,5 +1,1 @@
 https://github.com/Power-Components/livewire-powergrid
-
-
-to export excell -> have to install 
-composer require openspout/openspout
