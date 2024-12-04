@@ -1,3 +1,3 @@
-pass two paras
+pass two parameters
 
 Route::get('/extensions/{exten}/{user}/set',[HomeController::class,'assign_exten'])->name('assign.exten');
