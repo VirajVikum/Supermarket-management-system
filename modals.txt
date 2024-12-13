@@ -1,4 +1,4 @@
-In parent component
+In the parent component
 
 
 		public function openModal()
