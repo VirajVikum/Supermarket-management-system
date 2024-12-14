@@ -10,8 +10,6 @@
 
 
 
-
-
 create-user--->
 
 <x-modal name="exampleModal" show="false" maxWidth="2xl">
