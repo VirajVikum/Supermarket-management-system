@@ -1,6 +1,7 @@
 In the parent component
 
 
+
 		public function openModal()
    		 {
     		    $this->dispatch('open-modal',$this->phone1);
