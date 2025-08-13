@@ -1,6 +1,0 @@
-buy shared host service
-
-buy domain
-
-using host services ......
-

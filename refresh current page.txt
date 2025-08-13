@@ -1,1 +1,0 @@
-return redirect()->to(url()->previous());
