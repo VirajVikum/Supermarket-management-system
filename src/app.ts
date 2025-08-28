@@ -8,13 +8,18 @@
 // exports.default = App;
 
 import express, {Application} from "express";
+// import greetingRoute from "./routes/greeting.route";
+import { Routes } from "./routes/routes";
+
 
 const app:Application = express();
 
 app.use(express.json());
+// app.use("/greeting", greetingRoute)
+app.use("/api" ,Routes.getInstance().router)
 
 app.get("/", (req,res) => {
-    res.send("Hello World");
+    res.send("Hellooo World");
 });
 
 const PORT = 3001;
