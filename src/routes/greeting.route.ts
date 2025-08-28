@@ -8,6 +8,7 @@ router.get("/", (req: Request, res: Response) => {
 
 router.post("/", (req: Request, res: Response) => {
   const { name } = req.body;
-  res.send(`Hello ${name}`);
+  // const name = req.body.name;
+  res.send(`Hellooo ${name}`);
 });
 export default router;
